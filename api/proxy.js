@@ -4,7 +4,7 @@ export default async function handler(req, res) {
     const { email } = req.body;
 
     // Google Apps Script Web App URL
-    const apiUrl = 'https://script.google.com/macros/s/AKfycbwUPF2oKp-qbx7OMhvQTDWqYxeg9z0QX0wKLfu_vKgCQmAKyUkIG0_QG5De6BLEDoxQ/exec';
+    const apiUrl = 'https://script.google.com/macros/s/AKfycbyV_xA16yTmIT1z_3Re_h033_DMerd6PciSrXL-aQZAgsKT2W19KbzcUud-CoJGapEJ/exec';
 
     try {
       // Send the email to the Google Apps Script Web App
