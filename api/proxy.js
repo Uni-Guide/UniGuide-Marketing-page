@@ -1,14 +1,22 @@
-// api/proxy.js
+// proxy.js (Vercel API proxy endpoint)
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { email } = req.body;
-
-    // Google Apps Script Web App URL
-    const apiUrl = 'https://script.google.com/macros/s/AKfycbygw3Y7YA32MW5QVcTDK2G1aItet_v8_gLjKCZ02-1Vb8r194dOALGSakWJCmR38K0v/exec';
-
     try {
-      // Send the email to the Google Apps Script Web App
-      const response = await fetch(apiUrl, {
+      // Parse the incoming JSON request body
+      const { email } = req.body;
+
+      // Check if the email is provided
+      if (!email) {
+        return res.status(400).json({
+          status: 'error',
+          message: 'Email is missing'
+        });
+      }
+
+      // Call Google Apps Script Web App using fetch
+      const googleAppsScriptURL = 'https://script.google.com/macros/s/AKfycbwUPF2oKp-qbx7OMhvQTDWqYxeg9z0QX0wKLfu_vKgCQmAKyUkIG0_QG5De6BLEDoxQ/exec';
+      
+      const googleResponse = await fetch(googleAppsScriptURL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -16,17 +24,20 @@ export default async function handler(req, res) {
         body: JSON.stringify({ email }),
       });
 
-      const data = await response.json();
+      const data = await googleResponse.json();
 
-      if (response.ok) {
-        res.status(200).json({ status: 'success', message: data.message });
-      } else {
-        res.status(400).json({ status: 'error', message: data.message });
-      }
+      // Return the response from Google Apps Script
+      res.status(googleResponse.status).json(data);
     } catch (error) {
-      res.status(500).json({ status: 'error', message: 'Failed to submit email. Please try again later.' });
+      res.status(500).json({
+        status: 'error',
+        message: 'Server error: ' + error.message
+      });
     }
   } else {
-    res.status(405).json({ status: 'error', message: 'Method not allowed' });
+    res.status(405).json({
+      status: 'error',
+      message: 'Method Not Allowed'
+    });
   }
 }
