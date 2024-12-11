@@ -1,43 +1,32 @@
+// api/proxy.js
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzjBuBlf-fdwDmKCpOcFPb6Bvzktd3XEOv-8pOWKC2KyklW4BekN5gSWn_md525xaER/exec';
+    const { email } = req.body;
+
+    // Google Apps Script Web App URL
+    const apiUrl = 'https://script.google.com/macros/s/AKfycbwUPF2oKp-qbx7OMhvQTDWqYxeg9z0QX0wKLfu_vKgCQmAKyUkIG0_QG5De6BLEDoxQ/exec';
 
     try {
-      // Log the incoming request body for debugging
-      console.log('Request body:', req.body);
-
-      // Send the email data as JSON in the body
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
+      // Send the email to the Google Apps Script Web App
+      const response = await fetch(apiUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(req.body), // req.body should be the email object
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
       });
 
-      // Check for non-200 responses from Google Apps Script
-      if (!response.ok) {
-        throw new Error(`Google Apps Script returned an error: ${response.statusText}`);
+      const data = await response.json();
+
+      if (response.ok) {
+        res.status(200).json({ status: 'success', message: data.message });
+      } else {
+        res.status(400).json({ status: 'error', message: data.message });
       }
-
-      const data = await response.json(); // Parse response from Google Apps Script
-
-      // Set CORS headers in the response
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      res.setHeader('Access-Control-Allow-Methods', 'POST');
-      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-      res.status(response.status).json(data);
     } catch (error) {
-      // Log the error details
-      console.error('Error:', error);
-
-      // Send a more detailed error message to the client
-      res.status(500).json({
-        status: 'error',
-        message: 'Server error: ' + error.message,
-      });
+      res.status(500).json({ status: 'error', message: 'Failed to submit email. Please try again later.' });
     }
   } else {
-    res.setHeader('Allow', ['POST']);
-    res.status(405).json({ message: `Method ${req.method} not allowed` });
+    res.status(405).json({ status: 'error', message: 'Method not allowed' });
   }
 }
