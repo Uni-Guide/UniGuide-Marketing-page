@@ -1,14 +1,17 @@
-body {
+html, body {
     background: #fff;
     margin: 0;
     padding: 0;
     width: 100%;
+    height: 100%;
     font-family: Inter, sans-serif;
 }
 .coming-soon-container {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .main-wrapper {
@@ -17,7 +20,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 32px 0;
 }
 
 .content-container {
@@ -157,29 +159,22 @@ body {
     border: 0;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1190px) {
+    .main-heading {
+        font-size: 44px;
+    }
+}
+
+
+@media (max-width: 1076px) {
     .main-wrapper {
-        max-width: 100%;
-        padding: 0 20px;
-    }
-
-    .content-container {
-        max-width: 100%;
-        padding: 0 20px;
-    }
-
-    .header-section {
-        max-width: 100%;
-    }
-
-    .main-content {
-        max-width: 100%;
+        padding: 64px 0;
+        display: flex;
+        flex-direction: column;
     }
 
     .content-grid {
         flex-direction: column;
-        align-items: stretch;
-        gap: 0;
     }
 
     .left-column {
@@ -187,17 +182,16 @@ body {
     }
 
     .text-content {
-        max-width: 100%;
         margin-top: 40px;
+        text-align: center;
+        align-items: center;
     }
 
     .main-heading {
-        max-width: 100%;
         font-size: 40px;
     }
 
     .subscription-form {
-        max-width: 100%;
         margin-top: 40px;
     }
 
@@ -208,13 +202,12 @@ body {
     .submit-button {
         white-space: initial;
     }
-    
+
     .right-column {
         width: 100%;
     }
 
     .hero-image {
-        max-width: 100%;
         margin-top: 40px;
     }
 }
