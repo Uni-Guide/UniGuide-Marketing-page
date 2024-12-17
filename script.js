@@ -29,7 +29,6 @@ document.getElementById('newsletterForm').addEventListener('submit', async (e) =
   }
 });
 
-// Select elements
 const loadingText = document.getElementById("loading-text");
 const loadingScreen = document.querySelector(".loading-screen");
 const uniguideContainer = document.getElementById("uniguide-container");
@@ -37,19 +36,17 @@ const comingsoonContainer = document.getElementById("coming-soon-container");
 
 let load = 0;
 
-// Increment the loading percentage
 const loadingInterval = setInterval(() => {
   load++;
   loadingText.textContent = `${load}%`;
 
   if (load > 100) {
-    clearInterval(loadingInterval); // Stop the loading percentage
-    loadingScreen.style.display = "none"; // Hide loading screen
+    clearInterval(loadingInterval);
+    loadingScreen.style.display = "none";
 
-    // After 2 seconds, hide UniGuide and show the next div
     setTimeout(() => {
       uniguideContainer.style.display = "none";
-      comingsoonContainer.style.display = "flex"; // Show new content
-    }, 5000); // 2-second delay
+      comingsoonContainer.style.display = "flex";
+    }, 5000);
   }
-}, 30); // Loading increments every 30ms
+}, 30);

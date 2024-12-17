@@ -135,7 +135,7 @@ html, body {
 .main-heading {
     color: #222;
     align-self: stretch;
-    margin-top: 23px;
+    margin-top: 0px;
     font-size: 64px;
     font-weight: 700;
 }
@@ -171,6 +171,10 @@ html, body {
     flex: 1;
     cursor: pointer;
     font-size: 16px;
+}
+.submit-button:hover {
+    background: #000;
+    border: 2px solid #000;
 }
 
 .right-column {
