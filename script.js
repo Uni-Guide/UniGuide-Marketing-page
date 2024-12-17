@@ -28,3 +28,28 @@ document.getElementById('newsletterForm').addEventListener('submit', async (e) =
     messageEl.style.color = 'red';
   }
 });
+
+// Select elements
+const loadingText = document.getElementById("loading-text");
+const loadingScreen = document.querySelector(".loading-screen");
+const uniguideContainer = document.getElementById("uniguide-container");
+const comingsoonContainer = document.getElementById("coming-soon-container");
+
+let load = 0;
+
+// Increment the loading percentage
+const loadingInterval = setInterval(() => {
+  load++;
+  loadingText.textContent = `${load}%`;
+
+  if (load > 100) {
+    clearInterval(loadingInterval); // Stop the loading percentage
+    loadingScreen.style.display = "none"; // Hide loading screen
+
+    // After 2 seconds, hide UniGuide and show the next div
+    setTimeout(() => {
+      uniguideContainer.style.display = "none";
+      comingsoonContainer.style.display = "flex"; // Show new content
+    }, 5000); // 2-second delay
+  }
+}, 30); // Loading increments every 30ms
