@@ -38,6 +38,7 @@ export default function LandingPage() {
   }, [])
 
   return (
+
     <div className="flex min-h-screen flex-col bg-[#fff]">
       {/* Header */}
       <header className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-white/30 px-4 backdrop-blur-md lg:px-8">
@@ -91,13 +92,13 @@ export default function LandingPage() {
           </div>
         </div>
         <div className="animate-on-scroll mt-16 flex w-full max-w-5xl justify-center">
-          <div className="relative h-[500px] w-full">
+          <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
             <Image
               src="https://mayuranthanushan.sirv.com/Images/UniGuide/Marketing%20Page.png?height=1000&width=1800"
               alt="UniGuide App Interface"
-              layout="fill"
-              objectFit="contain"
-              className="rounded-2xl shadow-2xl"
+              fill
+              style={{ objectFit: "contain" }}
+              className="rounded-2xl shadow-lg"
             />
           </div>
         </div>
@@ -115,7 +116,7 @@ export default function LandingPage() {
         </div>
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
-            <Card key={feature.title} className="animate-on-scroll overflow-hidden rounded-2xl border-0 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
+            <Card key={feature.title} className="animate-on-scroll overflow-hidden border-2 border-dashed border-gray-600 bg-white p-8 transition-all">
               <div className="rounded-xl bg-blue-50 p-3 w-fit">
                 <feature.icon className="h-6 w-6 text-blue-600" />
               </div>
@@ -157,74 +158,84 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* App Preview Section */}
-      <section className="overflow-hidden px-4 py-20 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-                Experience the Future of Education
-              </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Our intuitive interface and powerful AI make educational planning seamless and enjoyable.
-              </p>
-              <ul className="mt-8 space-y-4">
-                {appFeatures.map((feature, index) => (
-                  <li key={index} className="flex items-start">
-                    <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
-                    <span className="text-gray-600">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-12 lg:mt-0 lg:w-1/2">
-              <div className="relative h-[600px] w-full">
-                <Image
-                  src="https://mayuranthanushan.sirv.com/Images/UniGuide/one.png"
-                  alt="Image 1"
-                  layout="fill"
-                  objectFit="contain"
-                  className="rounded-2xl"
-                />
-              </div>
-            </div>
-          </div>
+{/* App Preview Section */}
+<section className="overflow-hidden px-4 py-20 lg:px-8">
+  <div className="mx-auto max-w-6xl">
+    <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
+      <div className="lg:w-1/2">
+        <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+          Experience the Future of Education
+        </h2>
+        <p className="mt-4 text-lg text-gray-600">
+          Our intuitive interface and powerful AI make educational planning seamless and enjoyable.
+        </p>
+        <ul className="mt-8 space-y-4">
+          {appFeatures.map((feature, index) => (
+            <li key={index} className="flex items-start">
+              <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
+              <span className="text-gray-600">{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-12 lg:mt-0 w-72 sm:w-1/2">
+        <div className="relative h-auto w-full">
+          <Image
+            src="https://mayuranthanushan.sirv.com/Images/UniGuide/one.png"
+            alt="Image 1"
+            layout="responsive"
+            width={700} // Adjust width and height as needed
+            height={400} // Adjust width and height as needed
+            objectFit="contain"
+            className="rounded-2xl"
+          />
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section className="overflow-hidden px-4 py-20 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
-            <div className="mt-12 lg:mt-0 lg:w-1/2">
-              <div className="relative h-[600px] w-full">
-                <Image
-                  src="https://mayuranthanushan.sirv.com/Images/UniGuide/two.png"
-                  alt="UniGuide App Interface"
-                  layout="fill"
-                  objectFit="contain"
-                  className="rounded-2xl"
-                />
-              </div>
-            </div>
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-                Experience the Future of Education
-              </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Our intuitive interface and powerful AI make educational planning seamless and enjoyable.
-              </p>
-              <ul className="mt-8 space-y-4">
-                {appFeatures.map((feature, index) => (
-                  <li key={index} className="flex items-start">
-                    <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
-                    <span className="text-gray-600">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+{/* App Preview Section 2 */}
+<section className="overflow-hidden px-4 pb-20 lg:px-8">
+  <div className="mx-auto max-w-6xl">
+    <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
+      {/* Content first */}
+      <div className="lg:w-1/2">
+        <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+          Experience the Future of Education
+        </h2>
+        <p className="mt-4 text-lg text-gray-600">
+          Our intuitive interface and powerful AI make educational planning seamless and enjoyable.
+        </p>
+        <ul className="mt-8 space-y-4">
+          {appFeatures.map((feature, index) => (
+            <li key={index} className="flex items-start">
+              <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
+              <span className="text-gray-600">{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Image - will be moved after content on small screens */}
+      <div className="mt-12 lg:mt-0 w-72 sm:w-1/2 order-last lg:order-first">
+        <div className="relative h-auto w-full">
+          <Image
+            src="https://mayuranthanushan.sirv.com/Images/UniGuide/two.png"
+            alt="UniGuide App Interface"
+            layout="responsive"
+            width={700} // Adjust width and height as needed
+            height={400} // Adjust width and height as needed
+            objectFit="contain"
+            className="rounded-2xl"
+          />
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
       {/* FAQ Section */}
       <section id="faq" className="px-4 py-20 lg:px-8">
@@ -259,18 +270,18 @@ export default function LandingPage() {
 
       {/* CTA Section */}
       <section className="px-4 py-20 lg:px-8">
-        <div className="animate-on-scroll mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-blue-500 to-blue-500 p-8 text-center text-white sm:p-16">
-          <h2 className="text-3xl font-bold sm:text-4xl">Ready to Transform Your Educational Journey?</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-50">
+        <div className="animate-on-scroll mx-auto max-w-4xl border-2 border-dashed border-gray-600 p-8 text-center text-white sm:p-16">
+          <h2 className="text-3xl font-bold sm:text-4xl text-blue-500">Ready to Transform Your Educational Journey?</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-black">
             Join our waitlist today and be among the first to experience the future of educational guidance.
           </p>
           <form className="mx-auto mt-8 flex max-w-md flex-col items-center gap-4 sm:flex-row">
             <Input 
               type="email" 
               placeholder="Enter your email" 
-              className="h-12 w-full rounded-xl border-white/20 bg-white/10 text-white placeholder:text-white/60"
+              className="h-12 w-full rounded-xl border-gray-600 bg-white/20 text-black placeholder:text-black"
             />
-            <Button className="h-12 whitespace-nowrap rounded-xl bg-white px-8 text-blue-600 hover:bg-white/90">
+            <Button className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-black/90">
               Join Waitlist
             </Button>
           </form>
@@ -278,46 +289,41 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 bg-white px-4 py-12 lg:px-8">
+      <footer className="border-t border-gray-600 bg-white px-4 py-12 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div>
-              <Link href="/" className="flex items-center gap-2 text-xl font-bold text-blue-600">
-                <Image
-                  src="/placeholder.svg?height=40&width=40"
-                  alt="UniGuide Logo"
-                  width={40}
-                  height={40}
-                  className="rounded-xl"
-                />
+          <div className="grid grid-cols-1 md:grid-cols-2 space-between gap-4">
+            <div className="flex flex-col items-center md:items-start text-center">
+              <Link href="/" className="items-center text-3xl font-bold text-blue-600">
                 UniGuide
               </Link>
               <p className="mt-4 text-sm text-gray-600">
                 Empowering students to make informed decisions about their education and future careers.
               </p>
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900">Quick Links</h3>
-              <ul className="mt-4 space-y-2">
-                <li><Link href="#features" className="text-gray-600 hover:text-gray-900">Features</Link></li>
-                <li><Link href="#how-it-works" className="text-gray-600 hover:text-gray-900">How It Works</Link></li>
-                <li><Link href="#faq" className="text-gray-600 hover:text-gray-900">FAQ</Link></li>
-              </ul>
+            <div className="flex flex-col items-center md:items-end text-right">
+              <div className="flex gap-6 justify-end">
+                <Link href="https://www.instagram.com/uni.guide_lk/" className="hover:opacity-80">
+                  <Image src="square-instagram-brands-solid.svg" alt="Twitter" width={48} height={48} className="w-10 h-10" />
+                </Link>
+                <Link href="https://www.facebook.com/people/UniGuide/61570932562269/" className="hover:opacity-80">
+                  <Image src="square-facebook-brands-solid.svg" alt="LinkedIn" width={48} height={48} className="w-10 h-10" />
+                </Link>
+                <Link href="https://www.linkedin.com/company/uniguidelk/" className="hover:opacity-80">
+                  <Image src="linkedin-brands-solid.svg" alt="Instagram" width={48} height={48} className="w-10 h-10" />
+                </Link>
+              </div>
+              <Link href="mailto:uniguidelk@gmail.com" className="mt-4 text-sm text-gray-600">
+                  uniguidelk@gmail.com
+                </Link>
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900">Connect With Us</h3>
-              <ul className="mt-4 space-y-2">
-                <li><Link href="#" className="text-gray-600 hover:text-gray-900">Twitter</Link></li>
-                <li><Link href="#" className="text-gray-600 hover:text-gray-900">LinkedIn</Link></li>
-                <li><Link href="#" className="text-gray-600 hover:text-gray-900">Instagram</Link></li>
-              </ul>
-            </div>
+
           </div>
           <div className="mt-8 border-t border-gray-200 pt-8 text-center">
-            <p className="text-sm text-gray-600">&copy; 2023 UniGuide. All rights reserved.</p>
+            <p className="text-sm text-gray-600">&copy; 2025 UniGuide. CS-118.</p>
           </div>
         </div>
       </footer>
+
     </div>
   )
 }

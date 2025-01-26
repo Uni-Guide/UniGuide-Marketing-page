@@ -2,7 +2,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['mayuranthanushan.sirv.com'], // Add your external image host here
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "mayuranthanushan.sirv.com",
+        pathname: "/**",
+      },
+    ],
   },
 };
 
