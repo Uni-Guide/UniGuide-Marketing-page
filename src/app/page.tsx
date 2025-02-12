@@ -1,36 +1,34 @@
-"use client";
+"use client"
 
-import { useEffect } from 'react'
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Card } from "../components/ui/card"
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../components/ui/accordion"
-import { GraduationCap, Globe, Award, Search, MessageCircle, ArrowRight, Check } from 'lucide-react'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
+import { GraduationCap, Globe, Award, Search, MessageCircle, Check, Menu } from "lucide-react"
+import { Sheet } from "@/components/ui/sheet"
 
 export default function LandingPage() {
+  const [isSheetOpen, setIsSheetOpen] = useState(false)
+
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '0px',
-      threshold: 0.1
+      rootMargin: "0px",
+      threshold: 0.1,
     }
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in-up')
+          entry.target.classList.add("animate-fade-in-up")
         }
       })
     }, observerOptions)
 
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    document.querySelectorAll(".animate-on-scroll").forEach((el) => {
       observer.observe(el)
     })
 
@@ -38,27 +36,48 @@ export default function LandingPage() {
   }, [])
 
   return (
-
     <div className="flex min-h-screen flex-col bg-[#fff]">
       {/* Header */}
       <header className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-white/30 px-4 backdrop-blur-md lg:px-8">
         <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-blue-600">
           UniGuide
         </Link>
-        <nav className="hidden space-x-8 md:flex">
+        <nav className="hidden space-x-8 lg:flex">
           <Link href="#features" className="text-sm font-medium text-gray-600 hover:text-gray-900">
             Features
           </Link>
           <Link href="#how-it-works" className="text-sm font-medium text-gray-600 hover:text-gray-900">
             How It Works
           </Link>
-          <Link href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+          <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900">
             About
           </Link>
         </nav>
-              <Button className="h-12 rounded-xl bg-black px-8 hover:bg-blue-600">
-                <span>Sign Up</span>
-              </Button>
+        <div className="hidden lg:block">
+          <Button className="h-12 rounded-xl bg-black px-8 hover:bg-blue-600">
+            <span>Sign Up</span>
+          </Button>
+        </div>
+        <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setIsSheetOpen(true)}>
+          <Menu className="h-6 w-6" />
+          <span className="sr-only">Toggle menu</span>
+        </Button>
+        <Sheet isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} side="right">
+          <nav className="flex flex-col space-y-4 mt-6">
+            <Link href="#features" className="text-lg font-medium text-gray-600 hover:text-gray-900">
+              Features
+            </Link>
+            <Link href="#how-it-works" className="text-lg font-medium text-gray-600 hover:text-gray-900">
+              How It Works
+            </Link>
+            <Link href="/about" className="text-lg font-medium text-gray-600 hover:text-gray-900">
+              About
+            </Link>
+            <Button className="mt-4 h-12 rounded-xl bg-black px-8 hover:bg-blue-600">
+              <span>Sign Up</span>
+            </Button>
+          </nav>
+        </Sheet>
       </header>
 
       {/* Hero Section */}
@@ -196,7 +215,7 @@ export default function LandingPage() {
 </section>
 
 {/* App Preview Section 2 */}
-<section className="overflow-hidden px-4 pb-20 lg:px-8">
+<section className="overflow-hidden px-4 py-20 lg:px-8">
   <div className="mx-auto max-w-6xl">
     <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
       {/* Content first */}
@@ -234,8 +253,6 @@ export default function LandingPage() {
     </div>
   </div>
 </section>
-
-
 
       {/* FAQ Section */}
       <section id="faq" className="px-4 py-20 lg:px-8">
@@ -292,7 +309,7 @@ export default function LandingPage() {
       <footer className="border-t border-gray-600 bg-white px-4 py-12 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 space-between gap-4">
-            <div className="flex flex-col items-center md:items-start text-center">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <Link href="/" className="items-center text-3xl font-bold text-blue-600">
                 UniGuide
               </Link>
@@ -363,51 +380,40 @@ const features = [
     title: "Virtual Campus Explorer",
     description: "Experience university life from anywhere in the world",
     icon: Globe,
-    points: [
-      "360-degree virtual campus tours",
-      "Live information sessions",
-      "Interactive facility maps",
-    ],
+    points: ["360-degree virtual campus tours", "Live information sessions", "Interactive facility maps"],
   },
   {
     title: "Scholarship Tracker",
     description: "Never miss a funding opportunity with our real-time database",
     icon: Award,
-    points: [
-      "Personalized scholarship matches",
-      "Application deadline reminders",
-      "Direct application links",
-    ],
+    points: ["Personalized scholarship matches", "Application deadline reminders", "Direct application links"],
   },
   {
     title: "Progress Tracker",
     description: "Monitor and optimize your educational journey",
     icon: Chart,
-    points: [
-      "Visual progress dashboard",
-      "Goal setting and milestone tracking",
-      "Performance analytics",
-    ],
+    points: ["Visual progress dashboard", "Goal setting and milestone tracking", "Performance analytics"],
   },
 ]
 
 const howItWorks = [
   {
     title: "Create Your Profile",
-    description: "Tell us about your interests, achievements, and aspirations. Our AI personalizes your experience."
+    description: "Tell us about your interests, achievements, and aspirations. Our AI personalizes your experience.",
   },
   {
     title: "Get Matched",
-    description: "Receive tailored recommendations for courses, universities, and scholarships that align with your goals."
+    description:
+      "Receive tailored recommendations for courses, universities, and scholarships that align with your goals.",
   },
   {
     title: "Explore Options",
-    description: "Use our interactive tools to explore and compare different educational paths and opportunities."
+    description: "Use our interactive tools to explore and compare different educational paths and opportunities.",
   },
   {
     title: "Take Action",
-    description: "Apply to programs, track your applications, and prepare for your academic journey with our guidance."
-  }
+    description: "Apply to programs, track your applications, and prepare for your academic journey with our guidance.",
+  },
 ]
 
 const appFeatures = [
@@ -422,25 +428,30 @@ const appFeatures = [
 const faqs = [
   {
     question: "When will UniGuide be available?",
-    answer: "We're currently in the final stages of development and plan to launch in the coming months. Join our waitlist to be among the first to access UniGuide and receive exclusive early-bird benefits."
+    answer:
+      "We're currently in the final stages of development and plan to launch in the coming months. Join our waitlist to be among the first to access UniGuide and receive exclusive early-bird benefits.",
   },
   {
     question: "How does the AI technology work?",
-    answer: "Our AI system uses advanced machine learning algorithms to analyze your profile, preferences, and goals. It provides personalized recommendations and adapts to your learning style over time, ensuring increasingly accurate and helpful guidance."
+    answer:
+      "Our AI system uses advanced machine learning algorithms to analyze your profile, preferences, and goals. It provides personalized recommendations and adapts to your learning style over time, ensuring increasingly accurate and helpful guidance.",
   },
   {
     question: "Is UniGuide free to use?",
-    answer: "We plan to offer both free and premium features. Our basic features will be available to all users, while advanced features and personalized guidance will be part of our premium offerings. Pricing details will be announced closer to launch."
+    answer:
+      "We plan to offer both free and premium features. Our basic features will be available to all users, while advanced features and personalized guidance will be part of our premium offerings. Pricing details will be announced closer to launch.",
   },
   {
     question: "Can international students use UniGuide?",
-    answer: "Yes! UniGuide is designed to support students worldwide. Our platform includes information about international programs, language support, and resources specific to studying abroad."
+    answer:
+      "Yes! UniGuide is designed to support students worldwide. Our platform includes information about international programs, language support, and resources specific to studying abroad.",
   },
   {
     question: "How accurate is the course matching?",
-    answer: "Our course matching algorithm considers multiple factors including your interests, academic history, career goals, and admission requirements. It continuously learns and improves from user feedback to provide highly accurate recommendations."
-  }
+    answer:
+      "Our course matching algorithm considers multiple factors including your interests, academic history, career goals, and admission requirements. It continuously learns and improves from user feedback to provide highly accurate recommendations.",
+  },
 ]
 
-import { BarChartIcon as Chart } from 'lucide-react'
+import { BarChartIcon as Chart } from "lucide-react"
 
