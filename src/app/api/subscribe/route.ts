@@ -6,7 +6,7 @@ export async function POST(req: Request) {
     const { email } = await req.json()
 
     // Initialize EmailJS
-    emailjs.init("VYEMlwI954TgwDYVM")
+    emailjs.init("VYEMlwI954TgwDYVM")   
 
     // Send email using EmailJS
     await emailjs.send(
