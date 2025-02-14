@@ -12,6 +12,8 @@ import { Sheet } from "@/components/ui/sheet"
 
 export default function LandingPage() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
+  const [email, setEmail] = useState("")
+  const [notification, setNotification] = useState<{ type: "success" | "error"; message: string } | null>(null)
 
   useEffect(() => {
     const observerOptions = {
@@ -34,6 +36,33 @@ export default function LandingPage() {
 
     return () => observer.disconnect()
   }, [])
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      if (response.ok) {
+        setNotification({ type: "success", message: "You've been added to our waitlist." })
+        setEmail("")
+      } else {
+        throw new Error("Subscription failed")
+      }
+    } catch (error) {
+      console.error("Error:", error)
+      setNotification({ type: "error", message: "Failed to join the waitlist. Please try again." })
+    }
+
+    // Clear notification after 5 seconds
+    setTimeout(() => setNotification(null), 5000)
+  }
 
   return (
     <div className="flex min-h-screen flex-col bg-[#fff]">
@@ -292,16 +321,29 @@ export default function LandingPage() {
           <p className="mx-auto mt-4 max-w-2xl text-lg text-black">
             Join our waitlist today and be among the first to experience the future of educational guidance.
           </p>
-          <form className="mx-auto mt-8 flex max-w-md flex-col items-center gap-4 sm:flex-row">
-            <Input 
-              type="email" 
-              placeholder="Enter your email" 
+          <form onSubmit={handleSubmit} className="mx-auto mt-8 flex max-w-md flex-col items-center gap-4 sm:flex-row">
+            <Input
+              type="email"
+              placeholder="Enter your email"
               className="h-12 w-full rounded-xl border-gray-600 bg-white/20 text-black placeholder:text-black"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
-            <Button className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-black/90">
+            <Button
+              type="submit"
+              className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-blue-600"
+            >
               Join Waitlist
             </Button>
           </form>
+          {notification && (
+            <div
+              className={`mt-4 p-2 rounded ${notification.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}
+            >
+              {notification.message}
+            </div>
+          )}
         </div>
       </section>
 
