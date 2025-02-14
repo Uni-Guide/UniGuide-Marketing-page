@@ -183,13 +183,13 @@ export default function LandingPage() {
     <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
       <div className="lg:w-1/2">
         <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-          Experience the Future of Education
+          Personalized Recommendations for Your Academic Journey
         </h2>
         <p className="mt-4 text-lg text-gray-600">
-          Our intuitive interface and powerful AI make educational planning seamless and enjoyable.
+          Discover the best courses, certifications, and study resources tailored just for you. Our powerful recommendation engine analyzes your interests, goals, and progress to suggest the most relevant learning opportunities.
         </p>
         <ul className="mt-8 space-y-4">
-          {appFeatures.map((feature, index) => (
+          {appFeatures1.map((feature, index) => (
             <li key={index} className="flex items-start">
               <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
               <span className="text-gray-600">{feature}</span>
@@ -221,13 +221,13 @@ export default function LandingPage() {
       {/* Content first */}
       <div className="lg:w-1/2">
         <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-          Experience the Future of Education
+          Your AI-Powered Study Assistant
         </h2>
         <p className="mt-4 text-lg text-gray-600">
-          Our intuitive interface and powerful AI make educational planning seamless and enjoyable.
+          Meet your 24/7 AI chatbot, designed to guide you through your educational journey. Whether you need career advice, course suggestions, or help with assignments, our AI is here to assist.
         </p>
         <ul className="mt-8 space-y-4">
-          {appFeatures.map((feature, index) => (
+          {appFeatures2.map((feature, index) => (
             <li key={index} className="flex items-start">
               <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
               <span className="text-gray-600">{feature}</span>
@@ -416,40 +416,45 @@ const howItWorks = [
   },
 ]
 
-const appFeatures = [
-  "Intuitive dashboard for tracking all your applications",
-  "Real-time notifications for deadlines and updates",
-  "Interactive AI chatbot for instant support",
-  "Personalized study plans and resources",
-  "Progress tracking and achievement badges",
-  "Collaboration tools for group projects",
+const appFeatures1 = [
+  "AI-driven course and certification recommendations",
+  "Personalized study plans based on your strengths",
+  "Adaptive learning paths to maximize success",
+  "Smart insights to help you stay ahead",
+]
+
+const appFeatures2 = [
+  "Instant answers to academic and career-related queries",
+  "Personalized guidance based on your learning preferences",
+  "Real-time support for planning and decision-making",
+  "Engaging conversations to enhance your learning experience", 
 ]
 
 const faqs = [
   {
     question: "When will UniGuide be available?",
     answer:
-      "We're currently in the final stages of development and plan to launch in the coming months. Join our waitlist to be among the first to access UniGuide and receive exclusive early-bird benefits.",
+      "UniGuide is in its final stages of development, and we’re excited to launch soon. Join our waitlist to be among the first to experience our free, personalized AI-driven guidance and gain exclusive early access benefits.",
   },
   {
-    question: "How does the AI technology work?",
+    question: "How does UniGuide's AI technology work?",
     answer:
-      "Our AI system uses advanced machine learning algorithms to analyze your profile, preferences, and goals. It provides personalized recommendations and adapts to your learning style over time, ensuring increasingly accurate and helpful guidance.",
+      "UniGuide uses advanced machine learning algorithms to analyze your unique profile, aspirations, and academic goals. The AI adapts over time to offer personalized guidance that is increasingly tailored to your needs, helping you make informed educational decisions.",
   },
   {
     question: "Is UniGuide free to use?",
     answer:
-      "We plan to offer both free and premium features. Our basic features will be available to all users, while advanced features and personalized guidance will be part of our premium offerings. Pricing details will be announced closer to launch.",
+      "Yes, UniGuide is completely free for all students! We believe in making educational guidance accessible to everyone without any premium plans or fees.",
   },
   {
-    question: "Can international students use UniGuide?",
+    question: "How can UniGuide help Sri Lankan students?",
     answer:
-      "Yes! UniGuide is designed to support students worldwide. Our platform includes information about international programs, language support, and resources specific to studying abroad.",
+      "UniGuide is tailored specifically for Sri Lankan students, offering personalized guidance on local educational options, career paths, and university choices. The platform aims to simplify decision-making and ensure that every student has the support they need to succeed in their academic journey.",
   },
   {
-    question: "How accurate is the course matching?",
+    question: "What types of educational resources does UniGuide provide?",
     answer:
-      "Our course matching algorithm considers multiple factors including your interests, academic history, career goals, and admission requirements. It continuously learns and improves from user feedback to provide highly accurate recommendations.",
+      "UniGuide offers a wide range of resources to help students, including information on university programs, course details, scholarships, career advice, and tips for academic success. Our goal is to provide comprehensive support for students at every stage of their educational journey.",
   },
 ]
 

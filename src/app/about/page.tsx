@@ -102,18 +102,13 @@ export default function AboutPage() {
             <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
               <div className="lg:w-1/2">
                 <p className="mt-4 text-lg text-gray-600">
-                  At UniGuide, our mission is to democratize access to quality education by providing personalized,
-                  AI-driven guidance to students worldwide. We believe that every student deserves the opportunity to
-                  unlock their full potential and pursue their dreams.
+                  At UniGuide, we aim to democratize access to quality education by providing AI-driven guidance to students worldwide. We believe every student deserves the opportunity to unlock their potential and pursue their dreams, and our platform offers tailored resources and advice to support them at every stage of their academic journey.
                 </p>
                 <p className="mt-4 text-lg text-gray-600">
-                  By harnessing the power of artificial intelligence and machine learning, we aim to simplify the
-                  complex process of educational decision-making, making it more accessible, efficient, and tailored to
-                  each individual&apos;s unique aspirations and circumstances.
+                  Using artificial intelligence and machine learning, we simplify the process of educational decision-making. Our platform provides personalized recommendations based on each student’s unique aspirations, strengths, and circumstances, making it easier for them to choose the right courses, universities, and career paths.
                 </p>
                 <p className="mt-4 text-lg text-gray-600">
-                  By harnessing the power of artificial intelligence and machine learning, we aim to simplify the
-                  complex process of educational decision-making, making it more accessible, efficient, and tailored to each individual&apos;s unique aspirations and circumstances.
+                  UniGuide strives to make educational guidance more accessible and efficient. By offering relevant insights and support, we empower students with the tools they need to succeed and shape a brighter future for education globally.
                 </p>
               </div>
                 <div className="mt-12 lg:mt-0 w-72 sm:w-1/2">
@@ -156,7 +151,7 @@ export default function AboutPage() {
                   <div className="flex gap-2">
                   <h3 className="text-xl font-semibold text-gray-900">{member.name} </h3>
                   <Link href={member.linkedin} className="text-gray-400 hover:text-blue-500">
-                    <Link href="https://www.linkedin.com/company/uniguidelk/" className="hover:opacity-80">
+                    <Link href={member.linkedin} className="hover:opacity-80">
                     <Image src="linkedin-brands-solid.svg" alt="Instagram" width={48} height={48} className="w-5 h-5" />
                     </Link>
                   </Link>
@@ -210,47 +205,47 @@ export default function AboutPage() {
 }
 
 const teamMembers = [
-    {
-    name: "Mayuran Thanushan",
-    role: "Co-Founder",
-    bio: "David ensures that every student using UniGuide has a smooth and rewarding experience.",
-    image: "/placeholder.svg?height=300&width=300",
-    linkedin: "#",
-  },
-  {
-    name: "Harinejan Panchalingam",
-    role: "Co-Founder",
-    bio: "With over 15 years in EdTech, Jane is passionate about making quality education accessible to all.",
-    image: "/placeholder.svg?height=300&width=300",
-    linkedin: "#",
-  },
-  {
-    name: "Lakith Garusingarachi",
-    role: "Co-Founder",
-    bio: "John brings 20 years of experience in AI and machine learning to drive UniGuide's innovative technology.",
-    image: "/placeholder.svg?height=300&width=300",
-    linkedin: "#",
-  },
-  {
-    name: "Nisal Nethmika",
-    role: "Co-Founder",
-    bio: "Emily's background in UX design and education helps shape UniGuide's user-centric approach.",
-    image: "/placeholder.svg?height=300&width=300",
-    linkedin: "#",
-  },
-  {
-    name: "Sahan Senaviratne",
-    role: "Co-Founder",
-    bio: "Michael leverages his extensive network in higher education to expand UniGuide's reach and impact.",
-    image: "/placeholder.svg?height=300&width=300",
-    linkedin: "#",
-  },
-  {
-    name: "Thanugi Weerasinghe",
-    role: "Co-Founder",
-    bio: "Sarah's expertise in data analytics and AI algorithms powers UniGuide's personalized recommendations.",
-    image: "/placeholder.svg?height=300&width=300",
-    linkedin: "#",
-  },
+{
+    "name": "Harinejan Panchalingam",
+    "role": "Co-Founder",
+    "bio": "Harinejan leads UniGuide’s marketing efforts while specializing in authentication systems and CI/CD pipelines to ensure seamless and secure platform deployment.",
+    "image": "/placeholder.svg?height=300&width=300",
+    "linkedin": "#"
+},
+{
+    "name": "Lakith Garusingarachi",
+    "role": "Co-Founder",
+    "bio": "Lakith is a backend and machine learning expert, dedicated to developing scalable architectures and AI-driven features for UniGuide.",
+    "image": "/placeholder.svg?height=300&width=300",
+    "linkedin": "#"
+},
+{
+    "name": "Mayuran Thanushan",
+    "role": "Co-Founder",
+    "bio": "Thanushan specializes in frontend, UI/UX and marketing, ensuring UniGuide delivers a seamless and visually engaging experience while expanding its reach.",
+    "image": "/placeholder.svg?height=300&width=300",
+    "linkedin": "www.linkedin.com/in/mayuran-thanushan-a74b87292"
+},
+{
+    "name": "Nisal Nethmika",
+    "role": "Co-Founder",
+    "bio": "Nisal focuses on frontend development and data collection, building interactive user interfaces and ensuring high-quality data insights for UniGuide.",
+    "image": "/placeholder.svg?height=300&width=300",
+    "linkedin": "#"
+},
+{
+    "name": "Sahan Senaviratne",
+    "role": "Co-Founder",
+    "bio": "Sahan is a backend and machine learning specialist, developing robust APIs and AI-driven solutions to enhance UniGuide’s performance and intelligence.",
+    "image": "/placeholder.svg?height=300&width=300",
+    "linkedin": "#"
+},
+{
+    "name": "Thanugi Weerasinghe",
+    "role": "Co-Founder",
+    "bio": "Thanugi focuses on frontend development and research, refining UniGuide’s user experience while driving innovation through in-depth studies and analysis.",
+    "image": "/placeholder.svg?height=300&width=300",
+    "linkedin": "#"
+}
 ]
 
