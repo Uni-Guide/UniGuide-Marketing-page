@@ -68,24 +68,21 @@ export default function LandingPage() {
     <div className="flex min-h-screen flex-col bg-[#fff]">
       {/* Header */}
       <header className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-white/30 px-4 backdrop-blur-md lg:px-8">
-        <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-blue-600">
+        <Link href="/" className="flex items-center gap-2 text-3xl font-bold text-blue-600">
           UniGuide
         </Link>
-        <nav className="hidden space-x-8 lg:flex">
-          <Link href="#features" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+        <nav className="hidden ml-auto space-x-8 lg:flex">
+          <Link href="#features" className="text-base font-medium text-black hover:text-blue-600">
             Features
           </Link>
-          <Link href="#how-it-works" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+          <Link href="#how-it-works" className="text-base font-medium text-black hover:text-blue-600">
             How It Works
           </Link>
-          <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+          <Link href="/about" className="text-base font-medium text-black hover:text-blue-600">
             About
           </Link>
         </nav>
         <div className="hidden lg:block">
-          <Button className="h-12 rounded-xl bg-black px-8 hover:bg-blue-600">
-            <span>Sign Up</span>
-          </Button>
         </div>
         <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setIsSheetOpen(true)}>
           <Menu className="h-6 w-6" />
@@ -93,18 +90,15 @@ export default function LandingPage() {
         </Button>
         <Sheet isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} side="right">
           <nav className="flex flex-col space-y-4 mt-6">
-            <Link href="#features" className="text-lg font-medium text-gray-600 hover:text-gray-900">
+            <Link href="#features" className="text-lg font-medium text-black hover:text-blue-600">
               Features
             </Link>
-            <Link href="#how-it-works" className="text-lg font-medium text-gray-600 hover:text-gray-900">
+            <Link href="#how-it-works" className="text-lg font-medium text-black hover:text-blue-600">
               How It Works
             </Link>
-            <Link href="/about" className="text-lg font-medium text-gray-600 hover:text-gray-900">
+            <Link href="/about" className="text-lg font-medium text-black hover:text-blue-600">
               About
             </Link>
-            <Button className="mt-4 h-12 rounded-xl bg-black px-8 hover:bg-blue-600">
-              <span>Sign Up</span>
-            </Button>
           </nav>
         </Sheet>
       </header>
@@ -128,25 +122,42 @@ export default function LandingPage() {
             </p>
           </div>
           <div className="animate-on-scroll mt-8 flex flex-col items-center space-y-4">
-                <Button className="h-12 rounded-xl bg-black px-8 hover:bg-blue-600">
-                <span>Sign Up</span>
+            <form onSubmit={handleSubmit} className="mx-auto flex max-w-md flex-col items-center gap-4 sm:flex-row">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                className="h-12 w-full rounded-xl border-gray-600 bg-white/20 text-black placeholder:text-black"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <Button
+                type="submit"
+                className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-blue-600"
+              >
+                Join Waitlist
               </Button>
-            <p className="text-sm text-gray-500">
-              Already have an account?{' '}
-              <Link href="#" className="text-blue-600 hover:underline">
-                Log in
-              </Link>
-            </p>
+            </form>
           </div>
         </div>
         <div className="animate-on-scroll mt-16 flex w-full max-w-5xl justify-center">
-          <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+          <div className="relative w-full aspect-[7/5] sm:aspect-[2/1]">
+            {/* Mobile Image */}
             <Image
-              src="https://mayuranthanushan.sirv.com/Images/UniGuide/Marketing%20Page.png?height=1000&width=1800"
-              alt="UniGuide App Interface"
+              src="https://mayuranthanushan.sirv.com/Images/UniGuide/MarketingPage3.png?height=1000&width=1800"
+              alt="UniGuide App Interface - Mobile"
               fill
               style={{ objectFit: "contain" }}
-              className="rounded-2xl shadow-lg"
+              className="rounded-2xl shadow-2xl border-2 border-dashed border-gray-600 sm:hidden"
+            />
+
+            {/* Desktop Image */}
+            <Image
+              src="https://mayuranthanushan.sirv.com/Images/UniGuide/MarketingPage3.png?height=1000&width=1800"
+              alt="UniGuide App Interface - Desktop"
+              fill
+              style={{ objectFit: "contain" }}
+              className="rounded-2xl shadow-2xl border-2 border-dashed border-gray-600 hidden sm:block"
             />
           </div>
         </div>
@@ -352,7 +363,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 space-between gap-4">
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <Link href="/" className="items-center text-3xl font-bold text-blue-600">
+              <Link href="/" className="items-center text-4xl font-bold text-blue-600">
                 UniGuide
               </Link>
               <p className="mt-4 text-sm text-gray-600">

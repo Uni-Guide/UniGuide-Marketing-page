@@ -37,24 +37,21 @@ export default function AboutPage() {
     <div className="flex min-h-screen flex-col bg-[#fff]">
     {/* Header */}
       <header className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-white/30 px-4 backdrop-blur-md lg:px-8">
-        <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-blue-600">
+        <Link href="/" className="flex items-center gap-2 text-3xl font-bold text-blue-600">
           UniGuide
         </Link>
-        <nav className="hidden space-x-8 lg:flex">
-          <Link href="/#features" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+        <nav className="hidden ml-auto space-x-8 lg:flex">
+          <Link href="#features" className="text-base font-medium text-black hover:text-blue-600">
             Features
           </Link>
-          <Link href="/#how-it-works" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+          <Link href="#how-it-works" className="text-base font-medium text-black hover:text-blue-600">
             How It Works
           </Link>
-          <Link href="/about" className="text-sm text-blue-600 font-bold">
+          <Link href="/about" className="text-base font-medium text-black hover:text-blue-600">
             About
           </Link>
         </nav>
         <div className="hidden lg:block">
-          <Button className="h-12 rounded-xl bg-black px-8 hover:bg-blue-600">
-            <span>Sign Up</span>
-          </Button>
         </div>
         <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setIsSheetOpen(true)}>
           <Menu className="h-6 w-6" />
@@ -62,18 +59,15 @@ export default function AboutPage() {
         </Button>
         <Sheet isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} side="right">
           <nav className="flex flex-col space-y-4 mt-6">
-            <Link href="/#features" className="text-lg font-medium text-gray-600 hover:text-gray-900">
+            <Link href="#features" className="text-lg font-medium text-black hover:text-blue-600">
               Features
             </Link>
-            <Link href="/#how-it-works" className="text-lg font-medium text-gray-600 hover:text-gray-900">
+            <Link href="#how-it-works" className="text-lg font-medium text-black hover:text-blue-600">
               How It Works
             </Link>
-            <Link href="/about" className="text-lg text-black font-bold">
+            <Link href="/about" className="text-lg font-medium text-black hover:text-blue-600">
               About
             </Link>
-            <Button className="mt-4 h-12 rounded-xl bg-black px-8 hover:bg-blue-600">
-              <span>Sign Up</span>
-            </Button>
           </nav>
         </Sheet>
       </header>
@@ -114,7 +108,7 @@ export default function AboutPage() {
                 <div className="mt-12 lg:mt-0 w-72 sm:w-1/2">
                 <div className="relative h-auto w-full">
                 <Image
-                    src="https://mayuranthanushan.sirv.com/Images/UniGuide/one.png"
+                    src="https://mayuranthanushan.sirv.com/Images/UniGuide/three.png"
                     alt="Image 3"
                     layout="responsive"
                     width={700}
@@ -170,7 +164,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 space-between gap-4">
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <Link href="/" className="items-center text-3xl font-bold text-blue-600">
+              <Link href="/" className="items-center text-4xl font-bold text-blue-600">
                 UniGuide
               </Link>
               <p className="mt-4 text-sm text-gray-600">
@@ -209,43 +203,43 @@ const teamMembers = [
     "name": "Harinejan Panchalingam",
     "role": "Co-Founder",
     "bio": "Harinejan leads UniGuide’s marketing efforts while specializing in authentication systems and CI/CD pipelines to ensure seamless and secure platform deployment.",
-    "image": "/placeholder.svg?height=300&width=300",
-    "linkedin": "#"
+    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/nejan.jpg?height=300&width=300",
+    "linkedin": "https://www.linkedin.com/in/hari-nejan-panchalingam/"
 },
 {
     "name": "Lakith Garusingarachi",
     "role": "Co-Founder",
     "bio": "Lakith is a backend and machine learning expert, dedicated to developing scalable architectures and AI-driven features for UniGuide.",
-    "image": "/placeholder.svg?height=300&width=300",
-    "linkedin": "#"
+    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/lakith.jpg?height=300&width=300",
+    "linkedin": "https://www.linkedin.com/in/lakith-garusingarachchi-316b571b1/"
 },
 {
     "name": "Mayuran Thanushan",
     "role": "Co-Founder",
     "bio": "Thanushan specializes in frontend, UI/UX and marketing, ensuring UniGuide delivers a seamless and visually engaging experience while expanding its reach.",
-    "image": "/placeholder.svg?height=300&width=300",
-    "linkedin": "www.linkedin.com/in/mayuran-thanushan-a74b87292"
+    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/thanushan.jpg?height=300&width=300",
+    "linkedin": "https://www.linkedin.com/in/mayuran-thanushan-a74b87292"
 },
 {
     "name": "Nisal Nethmika",
     "role": "Co-Founder",
     "bio": "Nisal focuses on frontend development and data collection, building interactive user interfaces and ensuring high-quality data insights for UniGuide.",
-    "image": "/placeholder.svg?height=300&width=300",
-    "linkedin": "#"
+    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/nisal.jpg?height=300&width=300",
+    "linkedin": "https://www.linkedin.com/in/nisal-nethmika-519233294/"
 },
 {
     "name": "Sahan Senaviratne",
     "role": "Co-Founder",
     "bio": "Sahan is a backend and machine learning specialist, developing robust APIs and AI-driven solutions to enhance UniGuide’s performance and intelligence.",
-    "image": "/placeholder.svg?height=300&width=300",
-    "linkedin": "#"
+    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/sahan.jpg?height=300&width=300",
+    "linkedin": "https://www.linkedin.com/in/sahan-dakshitha45/"
 },
 {
     "name": "Thanugi Weerasinghe",
     "role": "Co-Founder",
     "bio": "Thanugi focuses on frontend development and research, refining UniGuide’s user experience while driving innovation through in-depth studies and analysis.",
-    "image": "/placeholder.svg?height=300&width=300",
-    "linkedin": "#"
+    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/thanugi.jpg?height=300&width=300",
+    "linkedin": "https://www.linkedin.com/in/thanugi-weerasinghe-6799772b5/"
 }
 ]
 
