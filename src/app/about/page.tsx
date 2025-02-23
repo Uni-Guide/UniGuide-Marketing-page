@@ -41,10 +41,10 @@ export default function AboutPage() {
           UniGuide
         </Link>
         <nav className="hidden ml-auto space-x-8 lg:flex">
-          <Link href="#features" className="text-base font-medium text-black hover:text-blue-600">
+          <Link href="/#features" className="text-base font-medium text-black hover:text-blue-600">
             Features
           </Link>
-          <Link href="#how-it-works" className="text-base font-medium text-black hover:text-blue-600">
+          <Link href="/#how-it-works" className="text-base font-medium text-black hover:text-blue-600">
             How It Works
           </Link>
           <Link href="/about" className="text-base font-medium text-black hover:text-blue-600">
@@ -203,28 +203,28 @@ const teamMembers = [
     "name": "Harinejan Panchalingam",
     "role": "Co-Founder",
     "bio": "Harinejan leads UniGuide’s marketing efforts while specializing in authentication systems and CI/CD pipelines to ensure seamless and secure platform deployment.",
-    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/nejan.jpg?height=300&width=300",
+    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/nejan3.jpg?height=300&width=300",
     "linkedin": "https://www.linkedin.com/in/hari-nejan-panchalingam/"
 },
 {
     "name": "Lakith Garusingarachi",
     "role": "Co-Founder",
     "bio": "Lakith is a backend and machine learning expert, dedicated to developing scalable architectures and AI-driven features for UniGuide.",
-    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/lakith.jpg?height=300&width=300",
+    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/lakith2.jpg?height=300&width=300",
     "linkedin": "https://www.linkedin.com/in/lakith-garusingarachchi-316b571b1/"
 },
 {
     "name": "Mayuran Thanushan",
     "role": "Co-Founder",
     "bio": "Thanushan specializes in frontend, UI/UX and marketing, ensuring UniGuide delivers a seamless and visually engaging experience while expanding its reach.",
-    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/thanushan.jpg?height=300&width=300",
+    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/thanushan2.jpg?height=300&width=300",
     "linkedin": "https://www.linkedin.com/in/mayuran-thanushan-a74b87292"
 },
 {
     "name": "Nisal Nethmika",
     "role": "Co-Founder",
     "bio": "Nisal focuses on frontend development and data collection, building interactive user interfaces and ensuring high-quality data insights for UniGuide.",
-    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/nisal.jpg?height=300&width=300",
+    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/nisal1.jpg?height=300&width=300",
     "linkedin": "https://www.linkedin.com/in/nisal-nethmika-519233294/"
 },
 {
