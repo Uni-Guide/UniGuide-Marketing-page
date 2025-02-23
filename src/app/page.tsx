@@ -1,5 +1,6 @@
 "use client"
 
+import Head from "next/head"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
@@ -65,6 +66,23 @@ export default function LandingPage() {
   }
 
   return (
+     <>
+      <Head>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            name: "UniGuide",
+            description: "AI-Powered Educational Guidance Platform",
+            url: "https://www.uniguide.lk",
+            sameAs: [
+              "https://www.facebook.com/people/UniGuide/61570932562269/",
+              "https://www.instagram.com/uni.guide_lk/",
+              "https://www.linkedin.com/company/uniguidelk/",
+            ],
+          })}
+        </script>
+      </Head>
     <div className="flex min-h-screen flex-col bg-[#fff]">
       {/* Header */}
       <header className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-white/30 px-4 backdrop-blur-md lg:px-8">
@@ -395,6 +413,7 @@ export default function LandingPage() {
       </footer>
 
     </div>
+    </>
   )
 }
 

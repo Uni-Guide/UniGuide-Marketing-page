@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import Head from "next/head"
 import { Card } from "@/components/ui/card"
 import { Menu } from "lucide-react"
 import { Sheet } from "@/components/ui/sheet"
@@ -34,6 +35,27 @@ export default function AboutPage() {
   }, [])
 
   return (
+      <>
+      <Head>
+        <title>About UniGuide - AI-Powered Educational Guidance Platform</title>
+        <meta
+          name="description"
+          content="Learn about UniGuide's mission to revolutionize educational planning with AI-driven personalized guidance and support for students worldwide."
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": "https://www.uniguide.lk/about",
+            },
+            name: "About UniGuide",
+            description:
+              "UniGuide is an AI-powered educational guidance platform that provides personalized support for students in their academic journey.",
+          })}
+        </script>
+      </Head>
     <div className="flex min-h-screen flex-col bg-[#fff]">
     {/* Header */}
       <header className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-white/30 px-4 backdrop-blur-md lg:px-8">
@@ -195,6 +217,7 @@ export default function AboutPage() {
         </div>
       </footer>
     </div>
+    </>
   )
 }
 
