@@ -254,7 +254,7 @@ const teamMembers = [
     "name": "Sahan Senaviratne",
     "role": "Co-Founder",
     "bio": "Sahan is a backend and machine learning specialist, developing robust APIs and AI-driven solutions to enhance UniGuide’s performance and intelligence.",
-    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/sahan.jpg?height=300&width=300",
+    "image": "https://mayuranthanushan.sirv.com/Images/UniGuide/sahan2.jpg?height=300&width=300",
     "linkedin": "https://www.linkedin.com/in/sahan-dakshitha45/"
 },
 {
