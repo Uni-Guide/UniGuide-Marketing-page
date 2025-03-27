@@ -84,6 +84,7 @@ export default function LandingPage() {
         </script>
       </Head>
     <div className="flex min-h-screen flex-col bg-[#fff]">
+      
       {/* Header */}
       <header className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-white/30 px-4 backdrop-blur-md lg:px-8">
         <Link href="/" className="flex items-center gap-2 text-3xl font-bold text-blue-600">
@@ -103,7 +104,12 @@ export default function LandingPage() {
             Articles
           </Link>
         </nav>
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex ml-auto space-x-4">
+          <a href="https://app.uniguide.lk/signup/">
+        <Button className="h-10 px-6 rounded-xl bg-black text-white hover:bg-blue-600">
+          Get Started
+        </Button>
+          </a>
         </div>
         <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setIsSheetOpen(true)}>
           <Menu className="h-6 w-6" />
@@ -111,18 +117,23 @@ export default function LandingPage() {
         </Button>
         <Sheet isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} side="right">
           <nav className="flex flex-col space-y-4 mt-6">
-            <Link href="#features" className="text-lg font-medium text-black hover:text-blue-600">
-              Features
-            </Link>
-            <Link href="#how-it-works" className="text-lg font-medium text-black hover:text-blue-600">
-              How It Works
-            </Link>
-            <Link href="/about" className="text-lg font-medium text-black hover:text-blue-600">
-              About
-            </Link>
-            <Link href="/articles" className="text-lg font-medium text-black hover:text-blue-600">
-              Articles
-            </Link>
+        <Link href="#features" className="text-lg font-medium text-black hover:text-blue-600">
+          Features
+        </Link>
+        <Link href="#how-it-works" className="text-lg font-medium text-black hover:text-blue-600">
+          How It Works
+        </Link>
+        <Link href="/about" className="text-lg font-medium text-black hover:text-blue-600">
+          About
+        </Link>
+        <Link href="/articles" className="text-lg font-medium text-black hover:text-blue-600">
+          Articles
+        </Link>
+        <a href="https://app.uniguide.lk/signup/">
+        <Button className="w-full px-6 rounded-xl bg-black text-white hover:bg-blue-600">
+          Get Started
+        </Button>
+          </a>
           </nav>
         </Sheet>
       </header>
@@ -146,24 +157,19 @@ export default function LandingPage() {
             </p>
           </div>
           <div className="animate-on-scroll mt-8 flex flex-col items-center space-y-4">
-            <form onSubmit={handleSubmit} className="mx-auto flex max-w-md flex-col items-center gap-4 sm:flex-row">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="h-12 w-full rounded-xl border-gray-600 bg-white/20 text-black placeholder:text-black"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <Button
-                type="submit"
-                className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-blue-600"
-              >
-                Join Waitlist
+              <a href="https://app.uniguide.lk/signup/">
+                <Button className="h-12 w-48 rounded-xl bg-black px-8 hover:bg-blue-600">
+                <span>Get Started</span>
               </Button>
-            </form>
+              </a>
+              <p className="text-sm text-gray-500">
+                Already have an account?{" "}
+                <Link href="https://app.uniguide.lk/login/" className="text-blue-600 hover:underline">
+                  Log in
+                </Link>
+              </p>
+            </div>
           </div>
-        </div>
         <div className="animate-on-scroll mt-16 flex w-full max-w-5xl justify-center">
           <div className="relative w-full aspect-[7/5] sm:aspect-[2/1]">
             {/* Mobile Image */}
@@ -350,36 +356,25 @@ export default function LandingPage() {
 
       {/* CTA Section */}
       <section className="px-4 py-20 lg:px-8">
-        <div className="animate-on-scroll mx-auto max-w-4xl border-2 border-dashed border-gray-600 p-8 text-center text-white sm:p-16">
-          <h2 className="text-3xl font-bold sm:text-4xl text-blue-500">Ready to Transform Your Educational Journey?</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-black">
-            Join our waitlist today and be among the first to experience the future of educational guidance.
-          </p>
-          <form onSubmit={handleSubmit} className="mx-auto mt-8 flex max-w-md flex-col items-center gap-4 sm:flex-row">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              className="h-12 w-full rounded-xl border-gray-600 bg-white/20 text-black placeholder:text-black"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <Button
-              type="submit"
-              className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-blue-600"
-            >
-              Join Waitlist
-            </Button>
-          </form>
-          {notification && (
-            <div
-              className={`mt-4 p-2 rounded ${notification.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}
-            >
-              {notification.message}
+          <div className="animate-on-scroll mx-auto max-w-4xl border-2 border-dashed border-gray-600 p-8 text-center text-white sm:p-16">
+            <h2 className="text-3xl font-bold sm:text-4xl text-blue-500">
+              Ready to Transform Your Educational Journey?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-black">
+              UniGuide is now live! Start exploring personalized educational guidance today.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <a href="https://app.uniguide.lk/signup/">
+              <Button
+                className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-blue-600"
+                size="lg"
+              >
+                Get Started Now
+              </Button>
+              </a>
             </div>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
 
       {/* Footer */}
       <footer className="border-t border-gray-600 bg-white px-4 py-12 lg:px-8">
@@ -509,9 +504,9 @@ const appFeatures2 = [
 
 const faqs = [
   {
-    question: "When will UniGuide be available?",
+    question: "Is UniGuide available now?",
     answer:
-      "UniGuide is in its final stages of development, and we’re excited to launch soon. Join our waitlist to be among the first to experience our free, personalized AI-driven guidance and gain exclusive early access benefits.",
+      "Yes! UniGuide is now fully launched and available for all users. You can create an account and start using our platform immediately to explore educational opportunities and receive personalized guidance.",
   },
   {
     question: "How does UniGuide's AI technology work?",
