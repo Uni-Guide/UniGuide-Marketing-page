@@ -99,6 +99,9 @@ export default function LandingPage() {
           <Link href="/about" className="text-base font-medium text-black hover:text-blue-600">
             About
           </Link>
+          <Link href="/articles" className="text-base font-medium text-black hover:text-blue-600">
+            Articles
+          </Link>
         </nav>
         <div className="hidden lg:block">
         </div>
@@ -116,6 +119,9 @@ export default function LandingPage() {
             </Link>
             <Link href="/about" className="text-lg font-medium text-black hover:text-blue-600">
               About
+            </Link>
+            <Link href="/articles" className="text-lg font-medium text-black hover:text-blue-600">
+              Articles
             </Link>
           </nav>
         </Sheet>
@@ -311,51 +317,6 @@ export default function LandingPage() {
   </div>
 </section>
 
-      {/* Featured Article Section */}
-      <section className="overflow-hidden px-4 py-20 lg:px-8">
-  <div className="mx-auto max-w-6xl">
-    <div className="animate-on-scroll text-center mb-12">
-      <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Featured Article</h2>
-      <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-        Insights and guidance to help you navigate your educational journey
-      </p>
-    </div>
-
-    <div className="animate-on-scroll flex flex-col md:flex-row gap-8 bg-white overflow-hidden border-2 border-dashed border-gray-600 p-6 items-center text-center md:text-left">
-      <div className="md:w-3/5 flex flex-col justify-between">
-        <div>
-          <span className="inline-block px-3 py-1 text-xs font-medium text-blue-600 bg-blue-100 rounded-full mb-4">
-            {featuredArticle.category}
-          </span>
-          <h3 className="text-2xl font-bold text-gray-900 mb-3">{featuredArticle.title}</h3>
-          <p className="text-gray-600 mb-4">{featuredArticle.excerpt}</p>
-        </div>
-        <div className="flex justify-center md:justify-start">
-          <Button className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-blue-600">
-            <a href="https://medium.com/@uniguidelk/uniguide-revolutionizing-educational-pathways-in-sri-lanka-cbbbb58da99f">
-              Check Out
-            </a>
-          </Button>
-        </div>
-      </div>
-      <div className="md:w-2/5 w-full md:h-auto flex justify-center">
-        <div className="relative w-full md:w-auto">
-          <Image
-            src={featuredArticle.image || "/placeholder.svg"}
-            alt={featuredArticle.title}
-            layout="responsive"
-            width={1000}
-            height={1000}
-            objectFit="cover"
-            className="rounded-xl"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
       {/* FAQ Section */}
       <section id="faq" className="px-4 py-20 lg:px-8">
         <div className="mx-auto max-w-3xl">
@@ -546,14 +507,6 @@ const appFeatures2 = [
   "Engaging conversations to enhance your learning experience", 
 ]
 
-const featuredArticle = {
-  title: "Revolutionizing Educational Pathways in Sri Lanka",
-  excerpt:
-    "UniGuide is revolutionizing the way Sri Lankan students navigate their educational and career paths. This free platform provides personalized university and course recommendations, career insights, and structured guidance to help students make informed decisions. By simplifying access to crucial academic information, UniGuide empowers students to explore opportunities that align with their aspirations, ensuring a clearer path to success.",
-  category: "Technology",
-  image: "https://mayuranthanushan.sirv.com/Images/UniGuide/article1.jpg",
-}
-
 const faqs = [
   {
     question: "When will UniGuide be available?",
@@ -583,4 +536,3 @@ const faqs = [
 ]
 
 import { BarChartIcon as Chart } from "lucide-react"
-

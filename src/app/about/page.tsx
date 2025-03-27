@@ -58,7 +58,7 @@ export default function AboutPage() {
       </Head>
     <div className="flex min-h-screen flex-col bg-[#fff]">
     {/* Header */}
-      <header className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-white/30 px-4 backdrop-blur-md lg:px-8">
+    <header className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-white/30 px-4 backdrop-blur-md lg:px-8">
         <Link href="/" className="flex items-center gap-2 text-3xl font-bold text-blue-600">
           UniGuide
         </Link>
@@ -72,6 +72,9 @@ export default function AboutPage() {
           <Link href="/about" className="text-base font-medium text-black hover:text-blue-600">
             About
           </Link>
+          <Link href="/articles" className="text-base font-medium text-black hover:text-blue-600">
+            Articles
+          </Link>
         </nav>
         <div className="hidden lg:block">
         </div>
@@ -81,14 +84,17 @@ export default function AboutPage() {
         </Button>
         <Sheet isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} side="right">
           <nav className="flex flex-col space-y-4 mt-6">
-            <Link href="#features" className="text-lg font-medium text-black hover:text-blue-600">
+            <Link href="/#features" className="text-lg font-medium text-black hover:text-blue-600">
               Features
             </Link>
-            <Link href="#how-it-works" className="text-lg font-medium text-black hover:text-blue-600">
+            <Link href="/#how-it-works" className="text-lg font-medium text-black hover:text-blue-600">
               How It Works
             </Link>
             <Link href="/about" className="text-lg font-medium text-black hover:text-blue-600">
               About
+            </Link>
+            <Link href="/articles" className="text-lg font-medium text-black hover:text-blue-600">
+              Articles
             </Link>
           </nav>
         </Sheet>
