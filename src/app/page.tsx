@@ -12,7 +12,6 @@ import { Sheet } from "@/components/ui/sheet"
 
 export default function LandingPage() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
-  const [email, setEmail] = useState("")
 
   useEffect(() => {
     const observerOptions = {
