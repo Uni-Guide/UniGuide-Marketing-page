@@ -5,7 +5,6 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "../components/ui/button"
-import { Input } from "../components/ui/input"
 import { Card } from "../components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 import { GraduationCap, Globe, Award, Search, MessageCircle, Check, Menu } from "lucide-react"
@@ -14,7 +13,6 @@ import { Sheet } from "@/components/ui/sheet"
 export default function LandingPage() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
   const [email, setEmail] = useState("")
-  const [notification, setNotification] = useState<{ type: "success" | "error"; message: string } | null>(null)
 
   useEffect(() => {
     const observerOptions = {
@@ -37,33 +35,6 @@ export default function LandingPage() {
 
     return () => observer.disconnect()
   }, [])
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    try {
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      })
-
-      if (response.ok) {
-        setNotification({ type: "success", message: "You've been added to our waitlist." })
-        setEmail("")
-      } else {
-        throw new Error("Subscription failed")
-      }
-    } catch (error) {
-      console.error("Error:", error)
-      setNotification({ type: "error", message: "Failed to join the waitlist. Please try again." })
-    }
-
-    // Clear notification after 5 seconds
-    setTimeout(() => setNotification(null), 5000)
-  }
 
   return (
      <>
