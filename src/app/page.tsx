@@ -7,7 +7,7 @@ import Link from "next/link"
 import { Button } from "../components/ui/button"
 import { Card } from "../components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
-import { GraduationCap, Globe, Award, Search, MessageCircle, Check, Menu, Library, BarChart3, Briefcase } from "lucide-react"
+import { GraduationCap, Globe, Award, Search, MessageCircle, Check, Menu, Library, BarChart3, Briefcase, Users } from "lucide-react"
 import { Sheet } from "@/components/ui/sheet"
 
 export default function LandingPage() {
@@ -306,6 +306,93 @@ export default function LandingPage() {
                 <p className="mt-2 text-gray-600">{point.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section id="pricing" className="px-4 py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="animate-on-scroll text-center">
+            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Free for Everyone</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+              We believe education guidance should be accessible to all
+            </p>
+          </div>
+
+          <div className="mt-16 mx-auto max-w-3xl">
+            <div className="animate-on-scroll rounded-xl overflow-hidden border-2 border-blue-500 bg-white p-8 transition-all shadow-lg">
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-gray-900">UniGuide Platform</h3>
+                <div className="mt-4 flex items-baseline justify-center">
+                  <span className="text-4xl font-extrabold text-gray-900">$0</span>
+                  <span className="ml-1 text-xl font-medium text-gray-500">/forever</span>
+                </div>
+                <p className="mt-4 text-gray-600">
+                  Our mission is to make quality educational guidance accessible to everyone.
+                </p>
+              </div>
+
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-3">All Features Included:</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <Check className="mr-2 h-5 w-5 flex-shrink-0 text-blue-500" />
+                      <span className="text-gray-600">Smart Course Finder</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="mr-2 h-5 w-5 flex-shrink-0 text-blue-500" />
+                      <span className="text-gray-600">24/7 AI Study Assistant</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="mr-2 h-5 w-5 flex-shrink-0 text-blue-500" />
+                      <span className="text-gray-600">Career Compass</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-3">Additional Benefits:</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <Check className="mr-2 h-5 w-5 flex-shrink-0 text-blue-500" />
+                      <span className="text-gray-600">Scholarship Tracker</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="mr-2 h-5 w-5 flex-shrink-0 text-blue-500" />
+                      <span className="text-gray-600">Progress Monitoring</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="mr-2 h-5 w-5 flex-shrink-0 text-blue-500" />
+                      <span className="text-gray-600">Regular Updates</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-8 text-center">
+              <a href="https://app.uniguide.lk/signup/">
+              <Button
+                className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-blue-600"
+                size="lg"
+              >
+                Get Started Now
+              </Button>
+              </a>
+                <p className="mt-4 text-sm text-gray-500">No credit card required. No hidden fees. Ever.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="animate-on-scroll mt-12 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3">
+              <Users className="h-5 w-5 text-blue-500" />
+              <span className="text-sm font-medium text-gray-700">Join 500+ students already using UniGuide</span>
+            </div>
+            <p className="mt-6 mx-auto max-w-2xl text-gray-600">
+              "Education is the most powerful weapon which you can use to change the world." <br />
+              <span className="italic">— Nelson Mandela</span>
+            </p>
           </div>
         </div>
       </section>
