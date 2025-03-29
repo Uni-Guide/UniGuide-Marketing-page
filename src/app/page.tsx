@@ -75,7 +75,7 @@ export default function LandingPage() {
           </Link>
         </nav>
         <div className="hidden lg:flex ml-auto space-x-4">
-          <a href="https://app.uniguide.lk/signup/">
+          <a href="https://app.uniguide.lk/login/">
         <Button className="h-10 px-6 rounded-xl bg-black text-white hover:bg-blue-600">
           Get Started
         </Button>
@@ -99,7 +99,7 @@ export default function LandingPage() {
         <Link href="/articles" className="text-lg font-medium text-black hover:text-blue-600">
           Articles
         </Link>
-        <a href="https://app.uniguide.lk/signup/">
+        <a href="https://app.uniguide.lk/login/">
         <Button className="w-full px-6 rounded-xl bg-black text-white hover:bg-blue-600">
           Get Started
         </Button>
@@ -127,17 +127,11 @@ export default function LandingPage() {
             </p>
           </div>
           <div className="animate-on-scroll mt-8 flex flex-col items-center space-y-4">
-              <a href="https://app.uniguide.lk/signup/">
+              <a href="https://app.uniguide.lk/login/">
                 <Button className="h-12 w-48 rounded-xl bg-black px-8 hover:bg-blue-600">
                 <span>Get Started</span>
               </Button>
               </a>
-              <p className="text-sm text-gray-500">
-                Already have an account?{" "}
-                <Link href="https://app.uniguide.lk/login/" className="text-blue-600 hover:underline">
-                  Log in
-                </Link>
-              </p>
             </div>
           </div>
         <div className="animate-on-scroll mt-16 flex w-full max-w-5xl justify-center">
@@ -371,12 +365,12 @@ export default function LandingPage() {
               </div>
 
               <div className="mt-8 text-center">
-              <a href="https://app.uniguide.lk/signup/">
+              <a href="https://app.uniguide.lk/login/">
               <Button
                 className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-blue-600"
                 size="lg"
               >
-                Get Started Now
+                Get Started
               </Button>
               </a>
                 <p className="mt-4 text-sm text-gray-500">No credit card required. No hidden fees. Ever.</p>
@@ -438,12 +432,12 @@ export default function LandingPage() {
               UniGuide is now live! Start exploring personalized educational guidance today.
             </p>
             <div className="mt-8 flex justify-center">
-              <a href="https://app.uniguide.lk/signup/">
+              <a href="https://app.uniguide.lk/login/">
               <Button
                 className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-blue-600"
                 size="lg"
               >
-                Get Started Now
+                Get Started
               </Button>
               </a>
             </div>
