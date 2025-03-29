@@ -390,7 +390,7 @@ export default function LandingPage() {
               <span className="text-sm font-medium text-gray-700">Join 500+ students already using UniGuide</span>
             </div>
             <p className="mt-6 mx-auto max-w-2xl text-gray-600">
-              "Education is the most powerful weapon which you can use to change the world." <br />
+              &quot;Education is the most powerful weapon which you can use to change the world.&quot; <br />
               <span className="italic">— Nelson Mandela</span>
             </p>
           </div>
