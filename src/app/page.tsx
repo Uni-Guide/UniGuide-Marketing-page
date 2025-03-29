@@ -7,7 +7,7 @@ import Link from "next/link"
 import { Button } from "../components/ui/button"
 import { Card } from "../components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
-import { GraduationCap, Globe, Award, Search, MessageCircle, Check, Menu } from "lucide-react"
+import { GraduationCap, Globe, Award, Search, MessageCircle, Check, Menu, Library, BarChart3, Briefcase } from "lucide-react"
 import { Sheet } from "@/components/ui/sheet"
 
 export default function LandingPage() {
@@ -217,81 +217,98 @@ export default function LandingPage() {
         </div>
       </section>
 
-{/* App Preview Section */}
-<section className="overflow-hidden px-4 py-20 lg:px-8">
-  <div className="mx-auto max-w-6xl">
-    <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
-      <div className="lg:w-1/2">
-        <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-          Personalized Recommendations for Your Academic Journey
-        </h2>
-        <p className="mt-4 text-lg text-gray-600">
-          Discover the best courses, certifications, and study resources tailored just for you. Our powerful recommendation engine analyzes your interests, goals, and progress to suggest the most relevant learning opportunities.
-        </p>
-        <ul className="mt-8 space-y-4">
-          {appFeatures1.map((feature, index) => (
-            <li key={index} className="flex items-start">
-              <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
-              <span className="text-gray-600">{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="mt-12 lg:mt-0 w-72 sm:w-1/2">
-        <div className="relative h-auto w-full">
-          <Image
-            src="https://mayuranthanushan.sirv.com/Images/UniGuide/one.png"
-            alt="Image 1"
-            layout="responsive"
-            width={700}
-            height={400} 
-            objectFit="co-2xl"
-          />
+      {/* App Preview Section */}
+      <section className="overflow-hidden px-4 py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
+            <div className="lg:w-1/2">
+              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                Personalized Recommendations for Your Academic Journey
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Discover the best courses, certifications, and study resources tailored just for you. Our powerful recommendation engine analyzes your interests, goals, and progress to suggest the most relevant learning opportunities.
+              </p>
+              <ul className="mt-8 space-y-4">
+                {appFeatures1.map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
+                    <span className="text-gray-600">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-12 lg:mt-0 w-72 sm:w-1/2">
+              <div className="relative h-auto w-full">
+                <Image
+                  src="https://mayuranthanushan.sirv.com/Images/UniGuide/one.png"
+                  alt="Image 1"
+                  layout="responsive"
+                  width={700}
+                  height={400} 
+                  objectFit="co-2xl"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-{/* App Preview Section 2 */}
-<section className="overflow-hidden px-4 py-20 lg:px-8">
-  <div className="mx-auto max-w-6xl">
-    <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
-      {/* Content first */}
-      <div className="lg:w-1/2">
-        <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-          Your AI-Powered Study Assistant
-        </h2>
-        <p className="mt-4 text-lg text-gray-600">
-          Meet your 24/7 AI chatbot, designed to guide you through your educational journey. Whether you need career advice, course suggestions, or help with assignments, our AI is here to assist.
-        </p>
-        <ul className="mt-8 space-y-4">
-          {appFeatures2.map((feature, index) => (
-            <li key={index} className="flex items-start">
-              <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
-              <span className="text-gray-600">{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* App Preview Section 2 */}
+      <section className="overflow-hidden px-4 py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
+            {/* Content first */}
+            <div className="lg:w-1/2">
+              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                Your AI-Powered Study Assistant
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Meet your 24/7 AI chatbot, designed to guide you through your educational journey. Whether you need career advice, course suggestions, or help with assignments, our AI is here to assist.
+              </p>
+              <ul className="mt-8 space-y-4">
+                {appFeatures2.map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
+                    <span className="text-gray-600">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-      {/* Image - will be moved after content on small screens */}
-      <div className="mt-12 lg:mt-0 w-72 sm:w-1/2 order-last lg:order-first">
-        <div className="relative h-auto w-full">
-          <Image
-            src="https://mayuranthanushan.sirv.com/Images/UniGuide/two.png"
-            alt="UniGuide App Interface"
-            layout="responsive"
-            width={700} 
-            height={400}
-            objectFit="contain"
-            className="rounded-2xl"
-          />
+            {/* Image - will be moved after content on small screens */}
+            <div className="mt-12 lg:mt-0 w-72 sm:w-1/2 order-last lg:order-first">
+              <div className="relative h-auto w-full">
+                <Image
+                  src="https://mayuranthanushan.sirv.com/Images/UniGuide/two.png"
+                  alt="UniGuide App Interface"
+                  layout="responsive"
+                  width={700} 
+                  height={400}
+                  objectFit="contain"
+                  className="rounded-2xl"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
+
+      {/* Why Choose Us*/}
+      <section id="why-choose-us" className="px-4 pb-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="mt-16 grid gap-12 md:grid-cols-3">
+            {uniqueSellingPoints.map((point, index) => (
+              <div key={index} className="animate-on-scroll flex flex-col items-center text-center">
+                <div className="rounded-full bg-blue-100 p-4">
+                  <point.icon className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="mt-6 text-xl font-semibold text-gray-900">{point.title}</h3>
+                <p className="mt-2 text-gray-600">{point.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section id="faq" className="px-4 py-20 lg:px-8">
@@ -501,3 +518,24 @@ const faqs = [
 ]
 
 import { BarChartIcon as Chart } from "lucide-react"
+
+const uniqueSellingPoints = [
+  {
+    title: "Comprehensive Database",
+    description:
+      "Access detailed information on local universities, including entry requirements, course structures, and career prospects.",
+    icon: Library,
+  },
+  {
+    title: "Up-to-Date Insights",
+    description:
+      "Stay informed with the latest university programs, career trends, and emerging fields to make well-informed decisions.",
+    icon: BarChart3,
+  },
+  {
+    title: "Career-Aligned Paths",
+    description:
+      "Navigate your academic journey with structured learning paths that align with industry demands and career aspirations.",
+    icon: Briefcase,
+  },
+]
