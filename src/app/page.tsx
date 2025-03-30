@@ -167,7 +167,7 @@ export default function LandingPage() {
             Discover how UniGuide empowers your educational journey with cutting-edge AI technology
           </p>
         </div>
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-6xl">
           {features.map((feature) => (
             <Card key={feature.title} className="animate-on-scroll overflow-hidden border-2 border-dashed border-gray-600 bg-white p-8 transition-all">
               <div className="rounded-xl bg-blue-50 p-3 w-fit">
@@ -190,23 +190,23 @@ export default function LandingPage() {
 
       {/* How It Works Section */}
       <section id="how-it-works" className="px-4 py-20 lg:px-8">
-        <div className="animate-on-scroll text-center">
+        <div className="animate-on-scroll text-center mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-            How UniGuide Works
+        How UniGuide Works
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-            Your journey to academic success made simple
+        Your journey to academic success made simple
           </p>
         </div>
-        <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4 mx-auto max-w-6xl">
           {howItWorks.map((step, index) => (
-            <div key={index} className="animate-on-scroll flex flex-col items-center text-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-2xl font-bold text-blue-600">
-                {index + 1}
-              </div>
-              <h3 className="mt-6 text-xl font-semibold text-gray-900">{step.title}</h3>
-              <p className="mt-2 text-gray-600">{step.description}</p>
-            </div>
+        <div key={index} className="animate-on-scroll flex flex-col items-center text-center">
+          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-2xl font-bold text-blue-600">
+            {index + 1}
+          </div>
+          <h3 className="mt-6 text-xl font-semibold text-gray-900">{step.title}</h3>
+          <p className="mt-2 text-gray-600">{step.description}</p>
+        </div>
           ))}
         </div>
       </section>
@@ -517,10 +517,10 @@ const features = [
     ],
   },
   {
-    title: "Virtual Campus Explorer",
-    description: "Experience university life from anywhere in the world",
+    title: "University Exploration",
+    description: "Discover and compare universities effortlessly.",
     icon: Globe,
-    points: ["360-degree virtual campus tours", "Live information sessions", "Interactive facility maps"],
+    points: ["Detailed university profiles with key insights", "Explore courses and faculties", "Admission details at a glance"],
   },
   {
     title: "Scholarship Tracker",
