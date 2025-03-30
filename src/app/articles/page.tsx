@@ -79,7 +79,7 @@ export default function ArticlesPage() {
           </Link>
         </nav>
         <div className="hidden lg:flex ml-auto space-x-4">
-          <a href="https://app.uniguide.lk/signup/">
+          <a href="https://app.uniguide.lk/login/">
         <Button className="h-10 px-6 rounded-xl bg-black text-white hover:bg-blue-600">
           Get Started
         </Button>
@@ -103,7 +103,7 @@ export default function ArticlesPage() {
         <Link href="/articles" className="text-lg font-medium text-black hover:text-blue-600">
           Articles
         </Link>
-        <a href="https://app.uniguide.lk/signup/">
+        <a href="https://app.uniguide.lk/login/">
         <Button className="w-full px-6 rounded-xl bg-black text-white hover:bg-blue-600">
           Get Started
         </Button>
