@@ -5,16 +5,13 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "../components/ui/button"
-import { Input } from "../components/ui/input"
 import { Card } from "../components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
-import { GraduationCap, Globe, Award, Search, MessageCircle, Check, Menu } from "lucide-react"
+import { GraduationCap, Globe, Award, Search, MessageCircle, Check, Menu, Library, BarChart3, Briefcase, Users } from "lucide-react"
 import { Sheet } from "@/components/ui/sheet"
 
 export default function LandingPage() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
-  const [email, setEmail] = useState("")
-  const [notification, setNotification] = useState<{ type: "success" | "error"; message: string } | null>(null)
 
   useEffect(() => {
     const observerOptions = {
@@ -38,33 +35,6 @@ export default function LandingPage() {
     return () => observer.disconnect()
   }, [])
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    try {
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      })
-
-      if (response.ok) {
-        setNotification({ type: "success", message: "You've been added to our waitlist." })
-        setEmail("")
-      } else {
-        throw new Error("Subscription failed")
-      }
-    } catch (error) {
-      console.error("Error:", error)
-      setNotification({ type: "error", message: "Failed to join the waitlist. Please try again." })
-    }
-
-    // Clear notification after 5 seconds
-    setTimeout(() => setNotification(null), 5000)
-  }
-
   return (
      <>
       <Head>
@@ -84,6 +54,7 @@ export default function LandingPage() {
         </script>
       </Head>
     <div className="flex min-h-screen flex-col bg-[#fff]">
+      
       {/* Header */}
       <header className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-white/30 px-4 backdrop-blur-md lg:px-8">
         <Link href="/" className="flex items-center gap-2 text-3xl font-bold text-blue-600">
@@ -99,8 +70,16 @@ export default function LandingPage() {
           <Link href="/about" className="text-base font-medium text-black hover:text-blue-600">
             About
           </Link>
+          <Link href="/articles" className="text-base font-medium text-black hover:text-blue-600">
+            Articles
+          </Link>
         </nav>
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex ml-auto space-x-4">
+          <a href="https://app.uniguide.lk/login/">
+        <Button className="h-10 px-6 rounded-xl bg-black text-white hover:bg-blue-600">
+          Get Started
+        </Button>
+          </a>
         </div>
         <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setIsSheetOpen(true)}>
           <Menu className="h-6 w-6" />
@@ -108,15 +87,23 @@ export default function LandingPage() {
         </Button>
         <Sheet isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} side="right">
           <nav className="flex flex-col space-y-4 mt-6">
-            <Link href="#features" className="text-lg font-medium text-black hover:text-blue-600">
-              Features
-            </Link>
-            <Link href="#how-it-works" className="text-lg font-medium text-black hover:text-blue-600">
-              How It Works
-            </Link>
-            <Link href="/about" className="text-lg font-medium text-black hover:text-blue-600">
-              About
-            </Link>
+        <Link href="#features" className="text-lg font-medium text-black hover:text-blue-600">
+          Features
+        </Link>
+        <Link href="#how-it-works" className="text-lg font-medium text-black hover:text-blue-600">
+          How It Works
+        </Link>
+        <Link href="/about" className="text-lg font-medium text-black hover:text-blue-600">
+          About
+        </Link>
+        <Link href="/articles" className="text-lg font-medium text-black hover:text-blue-600">
+          Articles
+        </Link>
+        <a href="https://app.uniguide.lk/login/">
+        <Button className="w-full px-6 rounded-xl bg-black text-white hover:bg-blue-600">
+          Get Started
+        </Button>
+          </a>
           </nav>
         </Sheet>
       </header>
@@ -140,24 +127,13 @@ export default function LandingPage() {
             </p>
           </div>
           <div className="animate-on-scroll mt-8 flex flex-col items-center space-y-4">
-            <form onSubmit={handleSubmit} className="mx-auto flex max-w-md flex-col items-center gap-4 sm:flex-row">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="h-12 w-full rounded-xl border-gray-600 bg-white/20 text-black placeholder:text-black"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <Button
-                type="submit"
-                className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-blue-600"
-              >
-                Join Waitlist
+              <a href="https://app.uniguide.lk/login/">
+                <Button className="h-12 w-48 rounded-xl bg-black px-8 hover:bg-blue-600">
+                <span>Get Started</span>
               </Button>
-            </form>
+              </a>
+            </div>
           </div>
-        </div>
         <div className="animate-on-scroll mt-16 flex w-full max-w-5xl justify-center">
           <div className="relative w-full aspect-[7/5] sm:aspect-[2/1]">
             {/* Mobile Image */}
@@ -191,7 +167,7 @@ export default function LandingPage() {
             Discover how UniGuide empowers your educational journey with cutting-edge AI technology
           </p>
         </div>
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-6xl">
           {features.map((feature) => (
             <Card key={feature.title} className="animate-on-scroll overflow-hidden border-2 border-dashed border-gray-600 bg-white p-8 transition-all">
               <div className="rounded-xl bg-blue-50 p-3 w-fit">
@@ -214,103 +190,206 @@ export default function LandingPage() {
 
       {/* How It Works Section */}
       <section id="how-it-works" className="px-4 py-20 lg:px-8">
-        <div className="animate-on-scroll text-center">
+        <div className="animate-on-scroll text-center mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-            How UniGuide Works
+        How UniGuide Works
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-            Your journey to academic success made simple
+        Your journey to academic success made simple
           </p>
         </div>
-        <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4 mx-auto max-w-6xl">
           {howItWorks.map((step, index) => (
-            <div key={index} className="animate-on-scroll flex flex-col items-center text-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-2xl font-bold text-blue-600">
-                {index + 1}
-              </div>
-              <h3 className="mt-6 text-xl font-semibold text-gray-900">{step.title}</h3>
-              <p className="mt-2 text-gray-600">{step.description}</p>
-            </div>
+        <div key={index} className="animate-on-scroll flex flex-col items-center text-center">
+          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-2xl font-bold text-blue-600">
+            {index + 1}
+          </div>
+          <h3 className="mt-6 text-xl font-semibold text-gray-900">{step.title}</h3>
+          <p className="mt-2 text-gray-600">{step.description}</p>
+        </div>
           ))}
         </div>
       </section>
 
-{/* App Preview Section */}
-<section className="overflow-hidden px-4 py-20 lg:px-8">
-  <div className="mx-auto max-w-6xl">
-    <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
-      <div className="lg:w-1/2">
-        <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-          Personalized Recommendations for Your Academic Journey
-        </h2>
-        <p className="mt-4 text-lg text-gray-600">
-          Discover the best courses, certifications, and study resources tailored just for you. Our powerful recommendation engine analyzes your interests, goals, and progress to suggest the most relevant learning opportunities.
-        </p>
-        <ul className="mt-8 space-y-4">
-          {appFeatures1.map((feature, index) => (
-            <li key={index} className="flex items-start">
-              <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
-              <span className="text-gray-600">{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="mt-12 lg:mt-0 w-72 sm:w-1/2">
-        <div className="relative h-auto w-full">
-          <Image
-            src="https://mayuranthanushan.sirv.com/Images/UniGuide/one.png"
-            alt="Image 1"
-            layout="responsive"
-            width={700} // Adjust width and height as needed
-            height={400} // Adjust width and height as needed
-            objectFit="contain"
-            className="rounded-2xl"
-          />
+      {/* App Preview Section */}
+      <section className="overflow-hidden px-4 py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
+            <div className="lg:w-1/2">
+              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                Personalized Recommendations for Your Academic Journey
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Discover the best courses, certifications, and study resources tailored just for you. Our powerful recommendation engine analyzes your interests, goals, and progress to suggest the most relevant learning opportunities.
+              </p>
+              <ul className="mt-8 space-y-4">
+                {appFeatures1.map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
+                    <span className="text-gray-600">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-12 lg:mt-0 w-72 sm:w-1/2">
+              <div className="relative h-auto w-full">
+                <Image
+                  src="https://mayuranthanushan.sirv.com/Images/UniGuide/one.png"
+                  alt="Image 1"
+                  layout="responsive"
+                  width={700}
+                  height={400} 
+                  objectFit="co-2xl"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-{/* App Preview Section 2 */}
-<section className="overflow-hidden px-4 py-20 lg:px-8">
-  <div className="mx-auto max-w-6xl">
-    <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
-      {/* Content first */}
-      <div className="lg:w-1/2">
-        <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-          Your AI-Powered Study Assistant
-        </h2>
-        <p className="mt-4 text-lg text-gray-600">
-          Meet your 24/7 AI chatbot, designed to guide you through your educational journey. Whether you need career advice, course suggestions, or help with assignments, our AI is here to assist.
-        </p>
-        <ul className="mt-8 space-y-4">
-          {appFeatures2.map((feature, index) => (
-            <li key={index} className="flex items-start">
-              <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
-              <span className="text-gray-600">{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* App Preview Section 2 */}
+      <section className="overflow-hidden px-4 py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="animate-on-scroll flex flex-col items-center lg:flex-row lg:gap-12">
+            {/* Content first */}
+            <div className="lg:w-1/2">
+              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                Your AI-Powered Study Assistant
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Meet your 24/7 AI chatbot, designed to guide you through your educational journey. Whether you need career advice, course suggestions, or help with assignments, our AI is here to assist.
+              </p>
+              <ul className="mt-8 space-y-4">
+                {appFeatures2.map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-500" />
+                    <span className="text-gray-600">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-      {/* Image - will be moved after content on small screens */}
-      <div className="mt-12 lg:mt-0 w-72 sm:w-1/2 order-last lg:order-first">
-        <div className="relative h-auto w-full">
-          <Image
-            src="https://mayuranthanushan.sirv.com/Images/UniGuide/two.png"
-            alt="UniGuide App Interface"
-            layout="responsive"
-            width={700} // Adjust width and height as needed
-            height={400} // Adjust width and height as needed
-            objectFit="contain"
-            className="rounded-2xl"
-          />
+            {/* Image - will be moved after content on small screens */}
+            <div className="mt-12 lg:mt-0 w-72 sm:w-1/2 order-last lg:order-first">
+              <div className="relative h-auto w-full">
+                <Image
+                  src="https://mayuranthanushan.sirv.com/Images/UniGuide/two.png"
+                  alt="UniGuide App Interface"
+                  layout="responsive"
+                  width={700} 
+                  height={400}
+                  objectFit="contain"
+                  className="rounded-2xl"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
+
+      {/* Why Choose Us*/}
+      <section id="why-choose-us" className="px-4 pb-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="mt-16 grid gap-12 md:grid-cols-3">
+            {uniqueSellingPoints.map((point, index) => (
+              <div key={index} className="animate-on-scroll flex flex-col items-center text-center">
+                <div className="rounded-full bg-blue-100 p-4">
+                  <point.icon className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="mt-6 text-xl font-semibold text-gray-900">{point.title}</h3>
+                <p className="mt-2 text-gray-600">{point.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section id="pricing" className="px-4 py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="animate-on-scroll text-center">
+            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Free for Everyone</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+              We believe education guidance should be accessible to all
+            </p>
+          </div>
+
+          <div className="mt-16 mx-auto max-w-3xl">
+            <div className="animate-on-scroll rounded-xl overflow-hidden border-2 border-blue-500 bg-white p-8 transition-all shadow-lg">
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-gray-900">UniGuide Platform</h3>
+                <div className="mt-4 flex items-baseline justify-center">
+                  <span className="text-4xl font-extrabold text-gray-900">$0</span>
+                  <span className="ml-1 text-xl font-medium text-gray-500">/forever</span>
+                </div>
+                <p className="mt-4 text-gray-600">
+                  Our mission is to make quality educational guidance accessible to everyone.
+                </p>
+              </div>
+
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-3">All Features Included:</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <Check className="mr-2 h-5 w-5 flex-shrink-0 text-blue-500" />
+                      <span className="text-gray-600">Smart Course Finder</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="mr-2 h-5 w-5 flex-shrink-0 text-blue-500" />
+                      <span className="text-gray-600">24/7 AI Study Assistant</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="mr-2 h-5 w-5 flex-shrink-0 text-blue-500" />
+                      <span className="text-gray-600">Career Compass</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-3">Additional Benefits:</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <Check className="mr-2 h-5 w-5 flex-shrink-0 text-blue-500" />
+                      <span className="text-gray-600">Scholarship Tracker</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="mr-2 h-5 w-5 flex-shrink-0 text-blue-500" />
+                      <span className="text-gray-600">Progress Monitoring</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="mr-2 h-5 w-5 flex-shrink-0 text-blue-500" />
+                      <span className="text-gray-600">Regular Updates</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-8 text-center">
+              <a href="https://app.uniguide.lk/login/">
+              <Button
+                className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-blue-600"
+                size="lg"
+              >
+                Get Started
+              </Button>
+              </a>
+                <p className="mt-4 text-sm text-gray-500">No credit card required. No hidden fees. Ever.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="animate-on-scroll mt-12 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3">
+              <Users className="h-5 w-5 text-blue-500" />
+              <span className="text-sm font-medium text-gray-700">Join 500+ students already using UniGuide</span>
+            </div>
+            <p className="mt-6 mx-auto max-w-2xl text-gray-600">
+              &quot;Education is the most powerful weapon which you can use to change the world.&quot; <br />
+              <span className="italic">— Nelson Mandela</span>
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section id="faq" className="px-4 py-20 lg:px-8">
@@ -345,36 +424,25 @@ export default function LandingPage() {
 
       {/* CTA Section */}
       <section className="px-4 py-20 lg:px-8">
-        <div className="animate-on-scroll mx-auto max-w-4xl border-2 border-dashed border-gray-600 p-8 text-center text-white sm:p-16">
-          <h2 className="text-3xl font-bold sm:text-4xl text-blue-500">Ready to Transform Your Educational Journey?</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-black">
-            Join our waitlist today and be among the first to experience the future of educational guidance.
-          </p>
-          <form onSubmit={handleSubmit} className="mx-auto mt-8 flex max-w-md flex-col items-center gap-4 sm:flex-row">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              className="h-12 w-full rounded-xl border-gray-600 bg-white/20 text-black placeholder:text-black"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <Button
-              type="submit"
-              className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-blue-600"
-            >
-              Join Waitlist
-            </Button>
-          </form>
-          {notification && (
-            <div
-              className={`mt-4 p-2 rounded ${notification.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}
-            >
-              {notification.message}
+          <div className="animate-on-scroll mx-auto max-w-4xl border-2 border-dashed border-gray-600 p-8 text-center text-white sm:p-16">
+            <h2 className="text-3xl font-bold sm:text-4xl text-blue-500">
+              Ready to Transform Your Educational Journey?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-black">
+              UniGuide is now live! Start exploring personalized educational guidance today.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <a href="https://app.uniguide.lk/login/">
+              <Button
+                className="h-12 whitespace-nowrap rounded-xl bg-black px-8 text-white hover:bg-blue-600"
+                size="lg"
+              >
+                Get Started
+              </Button>
+              </a>
             </div>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
 
       {/* Footer */}
       <footer className="border-t border-gray-600 bg-white px-4 py-12 lg:px-8">
@@ -449,10 +517,10 @@ const features = [
     ],
   },
   {
-    title: "Virtual Campus Explorer",
-    description: "Experience university life from anywhere in the world",
+    title: "University Exploration",
+    description: "Discover and compare universities effortlessly.",
     icon: Globe,
-    points: ["360-degree virtual campus tours", "Live information sessions", "Interactive facility maps"],
+    points: ["Detailed university profiles with key insights", "Explore courses and faculties", "Admission details at a glance"],
   },
   {
     title: "Scholarship Tracker",
@@ -504,9 +572,9 @@ const appFeatures2 = [
 
 const faqs = [
   {
-    question: "When will UniGuide be available?",
+    question: "Is UniGuide available now?",
     answer:
-      "UniGuide is in its final stages of development, and we’re excited to launch soon. Join our waitlist to be among the first to experience our free, personalized AI-driven guidance and gain exclusive early access benefits.",
+      "Yes! UniGuide is now fully launched and available for all users. You can create an account and start using our platform immediately to explore educational opportunities and receive personalized guidance.",
   },
   {
     question: "How does UniGuide's AI technology work?",
@@ -532,3 +600,23 @@ const faqs = [
 
 import { BarChartIcon as Chart } from "lucide-react"
 
+const uniqueSellingPoints = [
+  {
+    title: "Comprehensive Database",
+    description:
+      "Access detailed information on local universities, including entry requirements, course structures, and career prospects.",
+    icon: Library,
+  },
+  {
+    title: "Up-to-Date Insights",
+    description:
+      "Stay informed with the latest university programs, career trends, and emerging fields to make well-informed decisions.",
+    icon: BarChart3,
+  },
+  {
+    title: "Career-Aligned Paths",
+    description:
+      "Navigate your academic journey with structured learning paths that align with industry demands and career aspirations.",
+    icon: Briefcase,
+  },
+]
